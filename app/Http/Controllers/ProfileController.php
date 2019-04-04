@@ -42,16 +42,18 @@ class ProfileController extends Controller
      */
     public function updateAvatar(Request $request)
     {
+        $user = Auth::user();
         if ($request->hasFile('avatar')) {
             $avatar = $request->avatar;
             $filename = time() . '.' . $avatar->extension();
             Image::make($avatar)->resize(250, 250)->save(public_path('/uploads/avatars/' . $filename));
 
-            $user = Auth::user();
+
             $user->avatar = $filename;
             $user->save();
         }
 
-        return view('profile')->with('user', Auth::user());
+        return redirect()->route('show_profile', ['user' => $user->username]);
+        // return view('profile')->with('user', Auth::user());
     }
 }

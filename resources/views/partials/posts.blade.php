@@ -11,7 +11,7 @@
                     <form method="post" action="/posts">
                         {{ csrf_field() }}
                         <div class="form-group {{ $errors->has('body') ? ' has-error' : '' }}">
-                            <textarea name="body" class="form-control" rows="3" placeholder="What's New?" required autofocus>{{ old('body') }}</textarea>
+                            <textarea name="body" class="form-control" rows="3" placeholder="Šta ima novo?" required autofocus>{{ old('body') }}</textarea>
 
                             @if ($errors->has('body'))
                                 <span class="help-block">
@@ -19,7 +19,7 @@
                                 </span>
                             @endif
                         </div>
-                        <button type="submit" class="pull-right btn btn-primary">Submit</button>
+                        <button type="submit" class="pull-right btn btn-primary">Objavi</button>
                     </form>
                 </div>
             </div>

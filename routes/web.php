@@ -58,7 +58,7 @@ Route::post('/messages', 'MessageController@store');
 /**
  * Profile
  */
-Route::get('/{user}', 'ProfileController@show');
+Route::get('/{user}', 'ProfileController@show')->name('show_profile');
 
 Route::post('/profile', 'ProfileController@updateAvatar');
 
